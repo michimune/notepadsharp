@@ -3,6 +3,9 @@ if "%~1"=="" (
     echo Usage: generate.cmd ^<version^>
     exit /b 1
 )
+setlocal
+set HTML=docs\index.html
+set HTMLPATH="%~dp0%HTML%"
 set "VERSION=%~1"
 (
 echo ^<!DOCTYPE html^>
@@ -15,5 +18,5 @@ echo ^<body^>
 echo     ^<p^>%VERSION%^</p^>
 echo ^</body^>
 echo ^</html^>
-) > index.html
-echo Generated index.html with version %VERSION%
+) > %HTMLPATH%
+echo Generated %HTML% with version %VERSION%
